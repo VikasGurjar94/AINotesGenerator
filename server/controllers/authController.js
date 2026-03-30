@@ -23,3 +23,12 @@ export const googleAuth = async (req, res) => {
     return res.status(500).json({ message: `google sign up error ${error}` });
   }
 };
+
+export const logOut = async (req, res) => {
+  try {
+    await res.clearCookie("token");
+    return res.status(200).json({ message: "LogOut Successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: `Logout Error ${error}` });
+  }
+};
