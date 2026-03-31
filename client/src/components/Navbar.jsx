@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverUrl } from "../App";
 import { setUserData } from "../redux/userSlice";
+
 function Navbar() {
   const { userData } = useSelector((state) => state.user);
   const credits = userData.credits;
@@ -95,7 +96,9 @@ function Navbar() {
                 </p>
 
                 <button
-                  onClick={() => setShowCredits(false)}
+                  onClick={() => {setShowCredits(false)
+                    navigate("/pricing")
+                  }}
                   className="w-full py-2 rounded-lg
       bg-linear-to-br from-white to-gray-200
       text-black font-semibold
@@ -144,14 +147,17 @@ function Navbar() {
               >
                 <MenuItem
                   text="History"
-                  onClick={() => setShowProfile(false)}
+                  onClick={() => {setShowProfile(false)
+                    navigate("/history")
+                  }}
                 />
                 <div className="h-px bg-white/10 mx-3" />
                 <MenuItem
                   text="sign out"
                   red
                   onClick={() => {
-                    handleSignOut()
+                    handleSignOut() ;
+
                   }}
                 />
               </motion.div>
