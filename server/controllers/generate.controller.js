@@ -1,6 +1,7 @@
 import UserModel from "../models/user.model.js";
 import { generateGeminiResponse } from "../services/gemini.services.js";
 import { buildPrompt } from "../utils/promptBuilder.js";
+import Notes from "../models/notes.model.js";
 
 export const generateNotes = async (req, res) => {
   try {
@@ -11,7 +12,7 @@ export const generateNotes = async (req, res) => {
       revisionMode = false,
       includeDiagram = false,
       includeChart = false,
-    } = req.body();
+    } = req.body
 
     if (!topic) {
       return res.status(400).json({ message: "Topic is required" });
@@ -40,7 +41,7 @@ export const generateNotes = async (req, res) => {
       includeChart,
     });
 
-    const aiResponse = generateGeminiResponse(prompt);  
+    const aiResponse = await generateGeminiResponse(prompt);  
 
     const notes = await Notes.create({
       user: user._id,
@@ -60,7 +61,7 @@ export const generateNotes = async (req, res) => {
       user.notes = [];
     }
 
-    user.notes.push(note._id);
+    user.notes.push(notes._id);
 
     await user.save();
 

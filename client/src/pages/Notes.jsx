@@ -8,9 +8,9 @@ import { useState } from "react";
 
 
 const Notes = () => {
-    const [loading , setLoading] = useState()
-    const [error , setError] = useState()
-    const [result , setResult] = useState()
+    const [loading , setLoading] = useState(false)
+    const [error , setError] = useState(null)
+    const [result , setResult] = useState(null)
     const { userData } = useSelector((state) => state.user);
   const credits = userData.credits;
   const navigate = useNavigate();

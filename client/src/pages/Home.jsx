@@ -47,12 +47,9 @@ const Home = () => {
             </motion.p>
 
             <motion.button
-            onClick={()=> navigate('/notes') }
-              whileHover={{
-                scale: 1.07,
-              }}
-              whileTap={{ scale: 0.97 }}
-              
+              onClick={() => navigate("/notes")}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
               className="mt-10 px-10 py-3 rounded-xl cursor-pointer
     flex items-center gap-3 
     bg-linear-to-br from-black/90 via-black/80 to-black/90 
@@ -114,9 +111,7 @@ const Home = () => {
           des="Download clean, printable PDFs instantly."
         />
       </section>
-      <Footer>
-
-      </Footer>
+      <Footer></Footer>
     </div>
   );
 

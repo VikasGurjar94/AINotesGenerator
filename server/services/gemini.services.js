@@ -1,7 +1,7 @@
 
 
 const Gemini_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview:generateContent";
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent";
 
 export const generateGeminiResponse = async (prompt) => {
         try {
@@ -43,7 +43,7 @@ export const generateGeminiResponse = async (prompt) => {
                .replace(/```/g, "")
                .trim();
 
-             return JSOM.parse(cleanText);
+             return JSON.parse(cleanText);
         } catch (error) {
             console.error("Gemini Fetch Error:", error.message);
             throw new Error("Gemini API fetch failed");
