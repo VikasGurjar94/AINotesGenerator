@@ -96,17 +96,17 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li
               onClick={() => navigate("/auth")}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 cursor-pointer hover:text-white transition-colors"
             >
               SignIn
             </li>
             <li
               onClick={handleSignOut}
-              className="text-red-400 hover:text-red-300 transition-colors"
+              className="text-red-400 cursor-pointer hover:text-red-300 transition-colors"
             >
               SignOut
             </li>
-            <li className="text-gray-300 hover:text-white transition-colors">
+            <li className="text-gray-300 cursor-pointer hover:text-white transition-colors">
               support@examNotes.com
             </li>
           </ul>
