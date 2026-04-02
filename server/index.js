@@ -7,6 +7,7 @@ import cors from "cors"
 import userRouter from "./routes/user.route.js";
 import notesRouter from "./routes/generate.route.js";
 import pdfRouter from "./routes/pdf.route.js";
+import paymentRouter from "./routes/payment.route.js";
 
 dotenv.config() ;
 
@@ -34,6 +35,7 @@ app.use("/api/auth" , authRouter)
 app.use("/api/user", userRouter);
 app.use("/api/notes", notesRouter);
 app.use("/api/pdf", pdfRouter);
+app.use("/api/payment", paymentRouter);
 
 app.listen(PORT , ()=>{
     console.log(`server is running on ${PORT}`) ; 

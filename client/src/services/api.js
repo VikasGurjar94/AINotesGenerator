@@ -54,7 +54,35 @@ export const downloadPdf = async (result) => {
 
     window.URL.revokeObjectURL(url);
   } catch (error) {
+    console.error("PDF download failed:", error);
     throw new Error("PDF download failed");
   }
 };
 
+export const createPaymentOrder = async (amount) => {
+  try {
+    const result = await axios.post(
+      serverUrl + "/api/payment/create-order",
+      { amount },
+      { withCredentials: true }
+    );
+    return result.data;
+  } catch (error) {
+    console.error("Error creating payment order:", error);
+    throw error;
+  }
+};
+
+export const verifyPayment = async (paymentData) => {
+  try {
+    const result = await axios.post(
+      serverUrl + "/api/payment/verify",
+      paymentData,
+      { withCredentials: true }
+    );
+    return result.data;
+  } catch (error) {
+    console.error("Error verifying payment:", error);
+    throw error;
+  }
+};
