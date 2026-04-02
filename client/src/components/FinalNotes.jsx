@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 import MermaidSetup from "./MermaidSetup";
+import RechartSetUp from "./RechartSetup";
 
 const Markdown = {
   h1: ({ children }) => (
@@ -124,6 +125,23 @@ const FinalNotes = ({ result }) => {
             can save it by taking a screenshot.
           </p>
         </section>
+      )}
+
+      {result.charts?.length > 0 && (
+        <section>
+          <SectionHeader icon="📈" title="Visual Charts" color="indigo" />
+          <RechartSetUp charts={result.charts} />
+          <p className="mt-3 text-xs text-gray-500 italic">
+            ℹ️ If you need this Chart for future reference or revision, you can
+            save it by taking a screenshot.
+          </p>
+        </section>
+      )}
+
+      {result.charts && result.charts.length === 0 && (
+        <p className="text-sm text-gray-400 italic">
+          📉 Charts are not relevant for this topic.
+        </p>
       )}
 
       <section>
