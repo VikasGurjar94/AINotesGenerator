@@ -12,10 +12,10 @@ function RechartSetUp({ charts }) {
           className="border border-gray-200 rounded-xl p-4 bg-white"
         >
           <h4 className="font-semibold text-gray-800 mb-3">📊 {chart.title}</h4>
-          <div className="h-72">
+          <div className="h-72 w-full">
             <ResponsiveContainer width="100%" height="100%">
               {chart.type === "bar" && (
-                <BarChart dataKey={chart.data}>
+                <BarChart data={chart.data}>
                   <XAxis dataKey="name" />
                   <YAxis />
                   <Tooltip />
@@ -28,21 +28,7 @@ function RechartSetUp({ charts }) {
               )}
 
               {chart.type === "line" && (
-                <LineChart dataKey={chart.data}>
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#6366f1"
-                    strokeWidth={3}
-                  />
-                </LineChart>
-              )}
-
-              {chart.type === "line" && (
-                <LineChart dataKey={chart.data}>
+                <LineChart data={chart.data}>
                   <XAxis dataKey="name" />
                   <YAxis />
                   <Tooltip />
