@@ -46,7 +46,7 @@ function Pricing() {
       const { amount: orderAmount, id: order_id, currency } = result.order;
 
       const options = {
-        key: "rzp_test_SWbQJ3GHTx82Tc", 
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, 
         amount: orderAmount.toString(),
         currency: currency,
         name: "ExamNotes AI",
